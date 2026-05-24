@@ -1,4 +1,4 @@
-# 🎓 Carteirinha Digital - Cursinho Comunitário Sambaqui Itanhaém
+# Carteirinha Digital - Cursinho Comunitário Sambaqui Itanhaém
 
 ![Status](https://img.shields.io/badge/status-produtivo-green)
 ![Node.js](https://img.shields.io/badge/Node.js-22.x-green)
@@ -6,14 +6,16 @@
 
 Sistema full-stack para o **Cursinho Comunitário Sambaqui Itanhaém**, permitindo que alunos consultem, gerem e baixem sua identificação estudantil digital de forma segura e rápida.
 
-## 🔗 Links do Projeto
+## Links do Projeto
 
-- **Produção:** [https://sambaqui-carteirinha.onrender.com](https://sambaqui-carteirinha.onrender.com)
-- **Verificação de Carteirinha:** [https://sambaqui-carteirinha.onrender.com/validar/444444](https://sambaqui-carteirinha.onrender.com/validar/444444)
+- **Producao:** [https://sambaqui-carteirinha.onrender.com](https://sambaqui-carteirinha.onrender.com)
+- **Verificacao de Carteirinha:** [https://sambaqui-carteirinha.onrender.com/validar/444444](https://sambaqui-carteirinha.onrender.com/validar/444444)
 
-## 📸 Telas do Sistema
+> ⚠️ **Aviso:** A aplicação está no plano gratuito do Render. Na **primeira acesso do dia**, pode levar **30 a 50 segundos** para carregar. **Aguarde uns instantes** e a página carregará normalmente.
 
-### Tela de Login (Início)
+## Telas do Sistema
+
+### Tela de Login (Inicio)
 ![Tela de Login](./images/inicio.png)
 
 *Aluno informa CPF e Data de Nascimento para acessar sua carteirinha.*
@@ -21,38 +23,39 @@ Sistema full-stack para o **Cursinho Comunitário Sambaqui Itanhaém**, permitin
 ### Carteirinha Digital
 ![Carteirinha Sambaqui](./images/carteirinha_sambaqui.png)
 
-*Carteirinha gerada com foto, dados do aluno, código de registro e QR Code para verificação.*
+*Carteirinha gerada com foto, dados do aluno, codigo de registro e QR Code para verificacao.*
 
-### Verificação de Autenticidade
-![Verificação](./images/verificacao.png)
+### Verificacao de Autenticidade
+![Verificacao](./images/verificacao.png)
 
-*Página pública para validar a autenticidade da carteirinha através do código de registro.*
+*Pagina publica para validar a autenticidade da carteirinha atraves do codigo de registro.*
 
-## 📝 Resumo do Projeto
+## Resumo do Projeto
 
-App full-stack (Node.js/PostgreSQL) para emissão de carteirinhas digitais do **Cursinho Comunitário Sambaqui Itanhaém**.
+App full-stack (Node.js/PostgreSQL) para emissao de carteirinhas digitais do Cursinho Comunitario Sambaqui Itanhaem.
 
-Possui:
-- ✅ Login seguro via **CPF** e **Data de Nascimento**
-- ✅ Proteção contra ataques brute-force (Rate Limit)
-- ✅ Geração de imagem PNG com timestamp para download
-- ✅ QR Code integrado para validação em tempo real
-- ✅ Segurança avançada com Helmet, CORS e proteção contra SQL Injection
+**Funcionalidades:**
 
-## 🚀 Funcionalidades Principais
+- Login seguro via CPF e Data de Nascimento
+- Protecao contra ataques brute-force (Rate Limit)
+- Geracao de imagem PNG com timestamp para download
+- QR Code integrado para validacao em tempo real
+- Seguranca avancada com Helmet, CORS e protecao contra SQL Injection
 
-- **Autenticação Dupla:** Acesso via CPF + Data de Nascimento (formato DD/MM/AAAA)
-- **Geração de Carteirinha:** Interface visual que converte dados em cartão digital estilizado
-- **Download em PNG:** Exportação da carteirinha com carimbo timestamp para evitar fraudes
-- **Validação por QR Code:** Sistema integrado onde o QR Code aponta para página de verificação `/validar/:id`
-- **Verificação Pública:** Qualquer pessoa pode escanear o QR Code e validar a autenticidade da carteirinha
-- **Segurança:** 
-  - Proteção contra SQL Injection (query parametrizada)
-  - Headers de segurança (Helmet)
-  - Rate limiting (máximo 10 tentativas por IP em 15 minutos)
+## Funcionalidades Principais
+
+- **Autenticacao Dupla:** Acesso via CPF + Data de Nascimento (formato DD/MM/AAAA)
+- **Geracao de Carteirinha:** Interface visual que converte dados em cartao digital estilizado
+- **Download em PNG:** Exportacao da carteirinha com carimbo timestamp para evitar fraudes
+- **Validacao por QR Code:** Sistema integrado onde o QR Code aponta para pagina de verificacao `/validar/:id`
+- **Verificacao Publica:** Qualquer pessoa pode escanear o QR Code e validar a autenticidade da carteirinha
+- **Seguranca:** 
+  - Protecao contra SQL Injection (query parametrizada)
+  - Headers de seguranca (Helmet)
+  - Rate limiting (maximo 10 tentativas por IP em 15 minutos)
   - CORS configurado
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Backend
 - **Node.js** - Runtime JavaScript
@@ -60,17 +63,17 @@ Possui:
 - **PostgreSQL** - Banco de dados relacional (hospedado no Supabase)
 - **pg** - Driver PostgreSQL para Node.js
 
-### Segurança
-- **Helmet** - Headers de segurança HTTP
-- **Express-Rate-Limit** - Limitação de requisições
+### Seguranca
+- **Helmet** - Headers de seguranca HTTP
+- **Express-Rate-Limit** - Limitacao de requisicoes
 - **CORS** - Compartilhamento de recursos entre origens
 
 ### Frontend
-- **HTML5** - Estrutura das páginas
-- **CSS3** - Estilização responsiva
-- **JavaScript (Vanilla)** - Lógica do cliente
-- **html2canvas** - Geração de imagem da carteirinha
-- **QR Server API** - Geração de QR Codes dinâmicos
+- **HTML5** - Estrutura das paginas
+- **CSS3** - Estilizacao responsiva
+- **JavaScript (Vanilla)** - Logica do cliente
+- **html2canvas** - Geracao de imagem da carteirinha
+- **QR Server API** - Geracao de QR Codes dinamicos
 
 ---
-*Uso exclusivo para o Cursinho Comunitário Sambaqui Itanhaém. - Itanhaém, SP (2026).
+*Uso exclusivo para o Cursinho Comunitario Sambaqui Itanhaem. - Itanhaem, SP (2026).*
