@@ -631,7 +631,7 @@ async function mostrarCarteirinha(aluno) {
     const regId = String(aluno.id).padStart(4, '0');
     setText('alunoReg', `2026-SAMB-${regId}`);
 
-    window._urlVerificacao = `https://sambaqui-ita-carteirinha.onrender.com/validar/${id}`; const qrData = encodeURIComponent(window._urlVerificacao);
+    window._urlVerificacao = `https://sambaqui-carteirinha.onrender.com/validar/${String(aluno.id)}`;    const qrData = encodeURIComponent(window._urlVerificacao);
     document.getElementById('alunoQr').src =
         `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrData}`;
 
