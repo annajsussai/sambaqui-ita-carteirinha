@@ -15,8 +15,8 @@ Sistema full-stack para o **Cursinho Comunitário Sambaqui Itanhaém**, permitin
 
 ## Links do Projeto
 
-- **Produção:** [https://sambaqui-carteirinha.onrender.com](https://sambaqui-carteirinha.onrender.com)
-- **Verificação de Carteirinha:** [https://sambaqui-carteirinha.onrender.com/validar/444444](https://sambaqui-carteirinha.onrender.com/validar/444444)
+- **Produção:** [https://sambaqui-ita-carteirinha.onrender.com](https://sambaqui-ita-carteirinha.onrender.com)
+- **Verificação de Carteirinha:** [https://sambaqui-ita-carteirinha.onrender.com/validar/444444](https://sambaqui-ita-carteirinha.onrender.com/validar/444444)
 
 > ⚠️ **Aviso:** A aplicação está no plano gratuito do Render. No primeiro acesso do dia, pode levar 30 a 50 segundos para carregar. Aguarde uns instantes e a página carregará normalmente.
 
