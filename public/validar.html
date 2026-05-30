@@ -486,7 +486,7 @@ function mostrarLoading() {
 }
 
 // ---------- VERIFICAÇÃO POR ID (últimos 6 dígitos) ---------------------------------
-async function verificarPorId(tentativa = 1) {
+async function verificarPorId() {
     const id = document.getElementById('inputId').value.trim();
 
     if (!id) {
@@ -494,6 +494,7 @@ async function verificarPorId(tentativa = 1) {
         return;
     }
 
+    // Valida se é 6 dígitos
     if (!/^\d{1,6}$/.test(id)) {
         showMsg('⚠️ Digite apenas números', 'erro');
         return;
@@ -501,77 +502,53 @@ async function verificarPorId(tentativa = 1) {
 
     const btn = document.getElementById('btnBuscar');
     btn.disabled = true;
-
-    const maxTentativas = 5;
-    if (tentativa === 1) {
-        showMsg('🔍 Verificando dados…', 'loading');
-        mostrarLoading();
-    } else {
-        showMsg(`⏳ Aguardando servidor acordar… (tentativa ${tentativa}/${maxTentativas})`, 'loading');
-    }
+    showMsg('🔍 Verificando dados…', 'loading');
+    mostrarLoading();
 
     try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 10000);
-
-        const resp = await fetch(`/api/validar/${id}`, { signal: controller.signal });
-        clearTimeout(timeout);
+        const resp = await fetch(`/api/validar/${id}`);
         const data = await resp.json();
 
         if (!resp.ok || !data.valido) {
             hideMsg();
             mostrarErro('Carteirinha não encontrada ou inválida');
-            btn.disabled = false;
             return;
         }
 
         hideMsg();
-        mostrarSucesso({
+
+        const dadosExibicao = {
             nome: data.nome,
             codigo: data.codigo,
             ano: data.ano,
             validade: data.validade,
             emitido_por: data.emitido_por
-        });
-        setTimeout(() => {
-            document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+        };
+
+        mostrarSucesso(dadosExibicao);
 
     } catch (err) {
-        // Se falhou e ainda tem tentativas, tenta de novo após 4 segundos
-        if (tentativa < maxTentativas) {
-            setTimeout(() => verificarPorId(tentativa + 1), 4000);
-            return;
-        }
         console.error('Erro ao verificar:', err);
         hideMsg();
-        mostrarErro('Não foi possível conectar ao servidor. Tente novamente.');
+        mostrarErro('Não foi possível conectar ao servidor. Verifique sua internet.');
     } finally {
-        if (tentativa >= maxTentativas) btn.disabled = false;
+        btn.disabled = false;
     }
 }
 
 // ---------- DETECTAR SE VEM DE QRCODE (URL com :id) ---------------------------------
-(function() {
-    const pathArray = window.location.pathname.split('/');
-    const id = pathArray[pathArray.length - 1];
-
+window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    
+    // Se tem ID na URL (ex: /validar.html?id=444444), preenche automaticamente
     if (id && /^\d+$/.test(id)) {
-        // Aguarda o DOM e todos os listeners estarem prontos
-        document.addEventListener('DOMContentLoaded', function() {
-            const input = document.getElementById('inputId');
-            input.value = id.replace(/\D/g, '').slice(0, 6);
-            setTimeout(verificarPorId, 100);
-        });
-        window.addEventListener('load', function() {
-            const input = document.getElementById('inputId');
-            if (!input.value) {
-                input.value = id.replace(/\D/g, '').slice(0, 6);
-            }
-            if (input.value) verificarPorId();
-        });
+        document.getElementById('inputId').value = id;
+        
+        // Verifica automaticamente após 300ms
+        setTimeout(() => verificarPorId(), 300);
     }
-})();
+});
 
 // ---------- EVENTOS -----------------------------------------
 document.getElementById('inputId').addEventListener('keydown', e => {
