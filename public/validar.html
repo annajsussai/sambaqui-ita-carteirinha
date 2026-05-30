@@ -538,10 +538,10 @@ async function verificarPorId() {
 
 // ---------- DETECTAR SE VEM DE QRCODE (URL com :id) ---------------------------------
 window.addEventListener('load', function() {
-    const pathArray = window.location.pathname.split('/');
-    const id = pathArray[pathArray.length - 1];
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
     
-    // Se tem ID na URL (ex: /validar/444444), preenche automaticamente
+    // Se tem ID na URL (ex: /validar.html?id=444444), preenche automaticamente
     if (id && /^\d+$/.test(id)) {
         document.getElementById('inputId').value = id;
         
