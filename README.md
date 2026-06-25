@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/status-produtivo-green" alt="Status">
+  <img src="https://img.shields.io/badge/status-ativo-green" alt="Status">
   <img src="https://img.shields.io/badge/Node.js-22.x-green" alt="Node.js">
   <img src="https://img.shields.io/badge/PostgreSQL-16.x-blue" alt="PostgreSQL">
 </div>
